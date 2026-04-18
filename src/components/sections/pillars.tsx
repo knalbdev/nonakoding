@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Palette } from "lucide-react";
+import { Code2, Palette, BrainCircuit } from "lucide-react";
 import { Container } from "@/components/common/container";
 import { LEARNING_PATHS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -18,7 +18,7 @@ function FigmaIcon({ size = 20 }: { size?: number }) {
   );
 }
 
-const ICONS = { Code2, Palette, Figma: FigmaIcon };
+const ICONS = { Code2, Palette, Figma: FigmaIcon, BrainCircuit };
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function Pillars() {
@@ -36,11 +36,11 @@ export function Pillars() {
             Pilih Jalur <span className="text-[var(--c-text-2)]">Belajarmu</span>
           </h2>
           <p className="mt-4 text-base text-[var(--c-text-2)] max-w-xl mx-auto">
-            Tiga spesialisasi yang dirancang untuk membawamu dari pemula hingga siap berkarya di industri digital.
+            Empat spesialisasi yang dirancang untuk membawamu dari pemula hingga siap berkarya di industri digital.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {LEARNING_PATHS.map((path, i) => {
             const Icon = ICONS[path.icon as keyof typeof ICONS];
             return (
@@ -54,9 +54,15 @@ export function Pillars() {
                 )}
                 style={{ ["--hover-border" as string]: path.color }}
               >
-                <span className="absolute top-6 right-6 font-mono text-xs text-[var(--c-text-3)] select-none">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                {"badge" in path && path.badge ? (
+                  <span className="absolute top-5 right-5 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-[#A855F7] text-white">
+                    {path.badge}
+                  </span>
+                ) : (
+                  <span className="absolute top-6 right-6 font-mono text-xs text-[var(--c-text-3)] select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                )}
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)]"
                   style={{ color: path.color }}>
                   <Icon size={20} />

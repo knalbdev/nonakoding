@@ -20,22 +20,13 @@
   --c-pink-soft: #F572BE;
 }
 
-html.dark {
-  --c-bg:        #0E0C0B;
-  --c-surface:   #1A1714;
-  --c-surface-2: #221E1A;
-  --c-border:    #2E2A26;
-  --c-text:      #F0E8DC;
-  --c-text-2:    #9A8F83;
-  --c-text-3:    #5C5550;
-}
 
 /* ============================================================
    Design Tokens untuk Tailwind
    ============================================================ */
 @theme {
-  --font-display: var(--font-space-grotesk);
-  --font-body:    var(--font-inter);
+  --font-display: var(--font-jost);
+  --font-body:    var(--font-jost);
   --color-pink:      #E5007E;
   --color-pink-dark: #C4006A;
   --color-pink-soft: #F572BE;
@@ -51,14 +42,14 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--c-bg);
   color: var(--c-text);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-jost), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-jost), system-ui, sans-serif;
 }
 
 ::-webkit-scrollbar { width: 5px; }

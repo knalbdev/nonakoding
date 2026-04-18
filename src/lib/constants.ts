@@ -4,6 +4,7 @@
 export const NAV_LINKS = [
   { label: "Beranda", href: "/" },
   { label: "Events", href: "/events" },
+  { label: "Merch", href: "/merch" },
   { label: "About", href: "/about" },
 ];
 
@@ -35,6 +36,15 @@ export const LEARNING_PATHS = [
       "Rancang pengalaman digital yang intuitif dan menyenangkan. Dari riset pengguna, wireframe, hingga prototyping menggunakan Figma.",
     color: "#F572BE",
   },
+  {
+    id: "fullstack-ai-developer",
+    icon: "BrainCircuit",
+    title: "FullStack AI Developer",
+    description:
+      "Kuasai pengembangan aplikasi web modern yang ditenagai AI. Dari frontend hingga backend, integrasikan model AI ke dalam produk nyata yang siap pasar.",
+    color: "#A855F7",
+    badge: "Baru",
+  },
 ];
 
 // ============================================================
@@ -46,7 +56,7 @@ export const PROGRAMS = [
     icon: "Zap",
     title: "Mini Class",
     badge: "Gratis",
-    overview: "Program pembuka bagi pemula yang ingin mengenal dunia IT secara praktis dan menyenangkan.",
+    overview: "Program pembuka bagi pemula yang ingin mengenal dunia IT secara ringan dan praktis. Cocok untuk kamu yang ingin mulai tapi belum tahu harus dari mana.",
     benefits: [
       "Gratis & online",
       "Materi ramah pemula",
@@ -60,7 +70,7 @@ export const PROGRAMS = [
     icon: "GraduationCap",
     title: "Intensive Class",
     badge: "Populer",
-    overview: "Kurikulum terstruktur multi-minggu yang membawamu dari pemula ke tingkat menengah secara komprehensif.",
+    overview: "Program pembelajaran mendalam selama beberapa minggu dengan kurikulum yang lebih terstruktur. Cocok untuk peserta yang ingin naik level dari pemula ke menengah.",
     benefits: [
       "Kurikulum menyeluruh",
       "Sesi mentor mingguan",
@@ -74,7 +84,7 @@ export const PROGRAMS = [
     icon: "Mic",
     title: "Expert Talks",
     badge: "Gratis",
-    overview: "Sesi bersama para profesional industri yang membahas topik teknologi terkini langsung dari lapangan.",
+    overview: "Sesi sharing bareng para ahli/praktisi di bidang teknologi dan desain, membahas topik-topik relevan dari sudut pandang pengalaman nyata di industri.",
     benefits: [
       "Belajar dari praktisi nyata",
       "Insight dunia kerja terkini",
@@ -87,7 +97,7 @@ export const PROGRAMS = [
     icon: "Users",
     title: "Seminar",
     badge: null,
-    overview: "Event edukasi skala besar yang membahas tema-tema penting di industri digital bersama pembicara berpengalaman.",
+    overview: "Acara edukatif berskala besar yang membahas tema-tema penting di dunia teknologi dan kreativitas digital. Menghadirkan narasumber inspiratif dari berbagai latar belakang.",
     benefits: [
       "Wawasan industri yang luas",
       "Pembicara berpengalaman",
@@ -100,7 +110,7 @@ export const PROGRAMS = [
     icon: "Heart",
     title: "Nona Gathering",
     badge: null,
-    overview: "Pertemuan komunitas yang hangat untuk berbagi pengalaman, saling mendukung, dan bertumbuh bersama.",
+    overview: "Sesi kumpul komunitas Nonakoding yang fun dan informal. Tempat berbagi cerita, pengalaman, dan saling support sesama pembelajaran di bidang tech & design.",
     benefits: [
       "Mempererat hubungan komunitas",
       "Diskusi santai tapi inspiring",

@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "@/components/common/theme-provider";
+import { Jost } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], display: "swap" });
+const jost = Jost({ variable: "--font-jost", subsets: ["latin"], display: "swap", weight: ["300","400","500","600","700","800"] });
 
 export const metadata: Metadata = {
   title: {
@@ -37,11 +35,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${inter.variable} ${spaceGrotesk.variable} h-full`}>
+    <html lang="id" className={`${jost.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

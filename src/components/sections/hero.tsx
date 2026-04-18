@@ -25,7 +25,7 @@ export function Hero() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: E }} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--c-border)] bg-[var(--c-surface)] text-xs font-medium text-[var(--c-text-2)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#E5007E] animate-pulse" />
-              Komunitas Perempuan di Dunia Digital
+              Women Power Course
             </span>
           </motion.div>
 

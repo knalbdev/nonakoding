@@ -1,12 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/common/container";
 import { STATS, LEARNING_PATHS } from "@/lib/constants";
+import { useState } from "react";
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const TEAM = [
+  { name: "Setianing Budi", role: "Nona Founder", photo: "/team/setianing.jpg" },
+  { name: "Mane Mint Dahi", role: "Nona Mentor", photo: "/team/mane.jpg" },
+  { name: "Anisah Nurul Azhar", role: "Nona Creative", photo: "/team/anisah.jpg" },
+  { name: "Rosalina Saputri", role: "Nona Mentor", photo: "/team/rosalina.jpg" },
+];
+
+function TeamCard({ member, delay }: { member: typeof TEAM[0]; delay: number }) {
+  const [imgError, setImgError] = useState(false);
+  const initials = member.name.split(" ").map(n => n[0]).join("").slice(0, 2);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: E, delay }}
+      className="flex flex-col items-center text-center p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]"
+    >
+      <div className="mb-4 h-20 w-20 rounded-full overflow-hidden border-2 border-[var(--c-border)] flex items-center justify-center bg-[var(--c-surface-2)]">
+        {!imgError ? (
+          <Image
+            src={member.photo}
+            alt={member.name}
+            width={80}
+            height={80}
+            className="object-cover w-full h-full"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <span className="font-display text-xl font-bold" style={{ color: "#E5007E" }}>{initials}</span>
+        )}
+      </div>
+      <h3 className="font-display text-sm font-semibold text-[var(--c-text)]">{member.name}</h3>
+      <span className="mt-1 text-xs font-medium" style={{ color: "#E5007E" }}>{member.role}</span>
+    </motion.div>
+  );
+}
 
 export function AboutContent() {
   return (
@@ -30,10 +70,31 @@ export function AboutContent() {
         </Container>
       </section>
 
-      {/* Misi */}
-      <section className="py-16" aria-label="Misi">
+      {/* Kisah Terbentuknya Nonakoding */}
+      <section className="py-16" aria-label="Kisah Nonakoding">
         <div className="h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
         <Container className="py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: E }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="font-display text-2xl font-bold text-[var(--c-text)] sm:text-3xl mb-6">
+              Kisah Terbentuknya <span style={{ color: "#E5007E" }}>Nonakoding</span>
+            </h2>
+            <p className="text-base leading-relaxed text-[var(--c-text-2)]">
+              Nonakoding dibentuk oleh sekelompok perempuan yang sangat menyadari bahwasannya teknologi itu tidak hanya terbatas hanya untuk satu ras atau gender tertentu saja, melainkan teknologi adalah hak untuk semua manusia termasuk perempuan.
+            </p>
+          </motion.div>
+        </Container>
+        <div className="h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
+      </section>
+
+      {/* Misi */}
+      <section className="py-16" aria-label="Misi">
+        <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, ease: E }}>
@@ -67,6 +128,33 @@ export function AboutContent() {
             </motion.div>
           </div>
         </Container>
+      </section>
+
+      {/* Team */}
+      <section className="py-16" aria-label="Tim Nonakoding">
+        <div className="h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
+        <Container className="py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: E }}
+            className="mb-10 text-center"
+          >
+            <h2 className="font-display text-2xl font-bold text-[var(--c-text)] sm:text-3xl">
+              Perempuan dibalik Lahirnya <span style={{ color: "#E5007E" }}>Nonakoding</span>
+            </h2>
+            <p className="mt-3 text-base text-[var(--c-text-2)]">
+              Mereka yang bersama-sama membangun komunitas ini dari nol.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+            {TEAM.map((member, i) => (
+              <TeamCard key={member.name} member={member} delay={i * 0.08} />
+            ))}
+          </div>
+        </Container>
         <div className="h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
       </section>
 
@@ -76,14 +164,14 @@ export function AboutContent() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.6, ease: E }} className="mb-10 text-center">
             <h2 className="font-display text-2xl font-bold text-[var(--c-text)] sm:text-3xl">
-              3 Bidang Spesialisasi
+              4 Bidang Spesialisasi
             </h2>
             <p className="mt-3 text-base text-[var(--c-text-2)]">
               Fokus pada tiga jalur karier digital yang paling dibutuhkan industri saat ini.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
             {LEARNING_PATHS.map((path, i) => (
               <motion.div key={path.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, ease: E, delay: i * 0.1 }}

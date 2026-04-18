@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/common/logo";
-import { ThemeToggle } from "@/components/common/theme-toggle";
 import { Container } from "@/components/common/container";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -54,7 +53,6 @@ export function Navbar() {
             </ul>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <Link href="/events" className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-150 shadow-[0_0_16px_rgba(229,0,126,0.25)]">
                 Gabung Komunitas
               </Link>
@@ -104,7 +102,6 @@ export function Navbar() {
               </ul>
 
               <div className="mt-auto pt-6 border-t border-[var(--c-border)] flex flex-col gap-2">
-                <ThemeToggle className="w-full justify-center" />
                 <Link href="/events" onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-150">
                   Gabung Komunitas
