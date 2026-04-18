@@ -3,9 +3,9 @@
 // ============================================================
 export const NAV_LINKS = [
   { label: "Beranda", href: "/" },
-  { label: "Events", href: "/events" },
+  { label: "Event", href: "/events" },
   { label: "Merch", href: "/merch" },
-  { label: "About", href: "/about" },
+  { label: "Tentang", href: "/about" },
 ];
 
 // ============================================================
@@ -56,6 +56,7 @@ export const PROGRAMS = [
     icon: "Zap",
     title: "Mini Class",
     badge: "Gratis",
+    tagline: "Mulai dari nol, tanpa bingung.",
     overview: "Program pembuka bagi pemula yang ingin mengenal dunia IT secara ringan dan praktis. Cocok untuk kamu yang ingin mulai tapi belum tahu harus dari mana.",
     benefits: [
       "Gratis & online",
@@ -70,6 +71,7 @@ export const PROGRAMS = [
     icon: "GraduationCap",
     title: "Intensive Class",
     badge: "Populer",
+    tagline: "Naik level dengan kurikulum terstruktur.",
     overview: "Program pembelajaran mendalam selama beberapa minggu dengan kurikulum yang lebih terstruktur. Cocok untuk peserta yang ingin naik level dari pemula ke menengah.",
     benefits: [
       "Kurikulum menyeluruh",
@@ -84,6 +86,7 @@ export const PROGRAMS = [
     icon: "Mic",
     title: "Expert Talks",
     badge: "Gratis",
+    tagline: "Belajar langsung dari para praktisi.",
     overview: "Sesi sharing bareng para ahli/praktisi di bidang teknologi dan desain, membahas topik-topik relevan dari sudut pandang pengalaman nyata di industri.",
     benefits: [
       "Belajar dari praktisi nyata",

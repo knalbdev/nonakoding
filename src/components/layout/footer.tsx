@@ -83,7 +83,7 @@ export function Footer() {
               nonakoding@gmail.com
             </Link>
             <div className="mt-5">
-              <p className="mb-2.5 text-sm text-[var(--c-text-2)]">Subscribe untuk update program terbaru.</p>
+              <p className="mb-2.5 text-sm text-[var(--c-text-2)]">Daftarkan email untuk info program terbaru.</p>
               <NewsletterForm />
             </div>
           </div>

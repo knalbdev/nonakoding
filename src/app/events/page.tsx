@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/footer";
 import { EventsContent } from "./events-content";
 
 export const metadata: Metadata = {
-  title: "Events",
-  description: "Ikuti program dan events Nonakoding — Mini Class, Intensive Class, Expert Talks, Seminar, dan Nona Gathering.",
+  title: "Event",
+  description: "Ikuti program dan event Nonakoding — Mini Class, Intensive Class, Expert Talks, Seminar, dan Nona Gathering.",
 };
 
 export default function EventsPage() {

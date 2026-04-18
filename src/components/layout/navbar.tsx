@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/common/logo";
@@ -12,6 +13,7 @@ import { cn } from "@/lib/utils";
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -47,7 +49,12 @@ export function Navbar() {
             <ul className="hidden md:flex items-center gap-1" role="list">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="px-3.5 py-2 rounded-md text-sm font-medium text-[var(--c-text-2)] hover:text-[var(--c-text)] hover:bg-[var(--c-surface)] transition-colors duration-150">
+                  <Link href={link.href} className={cn(
+                    "px-3.5 py-2 rounded-md text-sm font-medium transition-colors duration-150",
+                    pathname === link.href
+                      ? "text-[#E5007E] bg-[rgba(229,0,126,0.06)]"
+                      : "text-[var(--c-text-2)] hover:text-[var(--c-text)] hover:bg-[var(--c-surface)]"
+                  )}>
                     {link.label}
                   </Link>
                 </li>
@@ -129,7 +136,10 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block px-8 py-2 text-base font-normal text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150 text-center"
+                      className={cn(
+                      "block px-8 py-2 text-base font-normal transition-colors duration-150 text-center",
+                      pathname === link.href ? "text-[#E5007E]" : "text-[var(--c-text)] hover:text-[#E5007E]"
+                    )}
                     >
                       {link.label}
                     </Link>

@@ -199,7 +199,7 @@ export function AboutContent() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link href="/events" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E5007E] text-white text-sm font-semibold hover:bg-[#C4006A] transition-colors duration-200">
-                Lihat Events <ArrowRight size={14} />
+                Lihat Event <ArrowRight size={14} />
               </Link>
               <Link href="mailto:nonakoding@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] text-sm font-semibold hover:border-[var(--c-text-3)] transition-colors duration-200">
                 nonakoding@gmail.com

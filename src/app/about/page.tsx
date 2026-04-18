@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/footer";
 import { AboutContent } from "./about-content";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Tentang",
   description: "Kenali Nonakoding — komunitas belajar teknologi untuk perempuan Indonesia.",
 };
 

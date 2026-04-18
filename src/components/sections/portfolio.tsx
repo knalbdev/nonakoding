@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Zap, GraduationCap, Mic, Users, Heart, CheckCircle2 } from "lucide-react";
+import { Zap, GraduationCap, Mic, Users, Heart, ArrowRight } from "lucide-react";
 import { Container } from "@/components/common/container";
 import { PROGRAMS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -33,42 +34,54 @@ export function Portfolio() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {PROGRAMS.map((program, i) => {
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {PROGRAMS.slice(0, 3).map((program, i) => {
             const Icon = ICONS[program.icon as keyof typeof ICONS];
             return (
-              <motion.div key={program.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, ease: E, delay: i * 0.08 }}
+              <motion.div
+                key={program.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, ease: E, delay: i * 0.07 }}
                 className={cn(
-                  "flex flex-col p-6 rounded-xl",
+                  "flex flex-col p-5 rounded-xl",
                   "border border-[var(--c-border)] bg-[var(--c-surface)]",
-                  "transition-all duration-300 hover:-translate-y-1",
-                  "hover:shadow-[0_8px_24px_rgba(229,0,126,0.08)]"
-                )}>
-                <div className="mb-4 flex items-start justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)]" style={{ color: "#E5007E" }}>
+                  "transition-all duration-200 hover:border-[rgba(229,0,126,0.3)] hover:shadow-[0_4px_16px_rgba(229,0,126,0.07)]"
+                )}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)]"
+                    style={{ color: "#E5007E" }}>
                     <Icon size={18} />
                   </div>
                   {program.badge && (
-                    <span className={cn("rounded-full border px-2.5 py-0.5 text-xs font-medium", BADGE[program.badge])}>
+                    <span className={cn("rounded-full border px-2.5 py-0.5 text-[10px] font-medium", BADGE[program.badge])}>
                       {program.badge}
                     </span>
                   )}
                 </div>
-                <h3 className="mb-2 font-display text-base font-semibold text-[var(--c-text)]">{program.title}</h3>
-                <p className="mb-5 flex-1 text-sm leading-relaxed text-[var(--c-text-2)]">{program.overview}</p>
-                <ul className="space-y-2 border-t border-[var(--c-border)] pt-4">
-                  {program.benefits.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-xs text-[var(--c-text-2)]">
-                      <CheckCircle2 size={13} className="mt-0.5 shrink-0" style={{ color: "#E5007E" }} />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="font-display text-sm font-semibold text-[var(--c-text)] mb-1">{program.title}</h3>
+                {"tagline" in program && <p className="text-sm leading-relaxed text-[var(--c-text-2)]">{program.tagline as string}</p>}
               </motion.div>
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: E, delay: 0.3 }}
+          className="mt-10 text-center"
+        >
+          <Link
+            href="/events"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-sm font-medium text-[var(--c-text)] hover:border-[#E5007E] hover:text-[#E5007E] transition-colors duration-200"
+          >
+            Lihat semua program <ArrowRight size={15} />
+          </Link>
+        </motion.div>
       </Container>
     </section>
   );
