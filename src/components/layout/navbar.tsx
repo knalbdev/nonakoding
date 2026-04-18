@@ -92,7 +92,7 @@ export function Navbar() {
             className="fixed inset-0 z-[60] bg-[var(--c-bg)] flex flex-col md:hidden"
           >
             {/* Top bar sama tinggi dengan navbar */}
-            <div className="flex h-16 items-center justify-between px-5">
+            <div className="flex h-16 items-center justify-between px-6 md:px-8 max-w-6xl mx-auto w-full">
               <Logo />
               <button
                 onClick={() => setMobileOpen(false)}
