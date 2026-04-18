@@ -129,7 +129,7 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block px-8 py-2 text-xl font-semibold text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150 text-center"
+                      className="block px-8 py-2 text-base font-normal text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150 text-center"
                     >
                       {link.label}
                     </Link>
@@ -145,7 +145,7 @@ export function Navbar() {
                   <Link
                     href="/events"
                     onClick={() => setMobileOpen(false)}
-                    className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-200"
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-medium bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-200"
                   >
                     Gabung Komunitas
                   </Link>
