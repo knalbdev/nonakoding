@@ -9,6 +9,8 @@ import { Container } from "@/components/common/container";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -34,7 +36,7 @@ export function Navbar() {
     <>
       <header className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
+        scrolled && !mobileOpen
           ? "border-b border-[var(--c-border)] bg-[var(--c-bg)]/90 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}>
@@ -58,57 +60,84 @@ export function Navbar() {
               </Link>
               <button
                 onClick={() => setMobileOpen((p) => !p)}
-                className="md:hidden flex items-center justify-center w-9 h-9 rounded-md text-[var(--c-text-2)] hover:text-[var(--c-text)] hover:bg-[var(--c-surface)] transition-colors duration-150"
+                className="md:hidden flex items-center justify-center w-9 h-9 rounded-md text-[var(--c-text-2)] hover:text-[var(--c-text)] transition-colors duration-150"
                 aria-label={mobileOpen ? "Tutup menu" : "Buka menu"}
                 aria-expanded={mobileOpen}
               >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+                <AnimatePresence mode="wait" initial={false}>
+                  {mobileOpen ? (
+                    <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                      <X size={22} />
+                    </motion.span>
+                  ) : (
+                    <motion.span key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                      <Menu size={22} />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </button>
             </div>
           </nav>
         </Container>
       </header>
 
+      {/* Full-screen mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
-              onClick={() => setMobileOpen(false)}
-              aria-hidden="true"
-            />
-            <motion.div
-              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 md:hidden bg-[var(--c-bg)] border-l border-[var(--c-border)] flex flex-col pt-20 pb-8 px-6"
-            >
-              <button onClick={() => setMobileOpen(false)}
-                className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-md text-[var(--c-text-2)] hover:text-[var(--c-text)] hover:bg-[var(--c-surface)] transition-colors duration-150"
-                aria-label="Tutup menu">
-                <X size={20} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-[var(--c-bg)] flex flex-col md:hidden"
+          >
+            {/* Top bar sama tinggi dengan navbar */}
+            <div className="flex h-16 items-center justify-between px-5">
+              <Logo />
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center w-9 h-9 text-[var(--c-text-2)]"
+                aria-label="Tutup menu"
+              >
+                <X size={22} />
               </button>
+            </div>
 
-              <ul className="flex flex-col gap-1" role="list">
-                {NAV_LINKS.map((link, i) => (
-                  <motion.li key={link.href} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 + 0.1 }}>
-                    <Link href={link.href} onClick={() => setMobileOpen(false)}
-                      className="block px-4 py-3 rounded-lg text-base font-medium text-[var(--c-text-2)] hover:text-[var(--c-text)] hover:bg-[var(--c-surface)] transition-colors duration-150">
-                      {link.label}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
+            {/* Nav links — tengah */}
+            <div className="flex flex-1 flex-col items-center justify-center gap-2">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, ease: E, delay: i * 0.06 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-8 py-3 text-2xl font-semibold text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150 text-center"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
 
-              <div className="mt-auto pt-6 border-t border-[var(--c-border)] flex flex-col gap-2">
-                <Link href="/events" onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center w-full px-4 py-3 rounded-lg text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-150">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, ease: E, delay: NAV_LINKS.length * 0.06 }}
+                className="mt-4"
+              >
+                <Link
+                  href="/events"
+                  onClick={() => setMobileOpen(false)}
+                  className="inline-flex items-center justify-center px-10 py-3.5 rounded-full text-base font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-200"
+                >
                   Gabung Komunitas
                 </Link>
-              </div>
-            </motion.div>
-          </>
+              </motion.div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

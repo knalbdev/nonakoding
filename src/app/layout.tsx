@@ -6,11 +6,11 @@ const jost = Jost({ variable: "--font-jost", subsets: ["latin"], display: "swap"
 
 export const metadata: Metadata = {
   title: {
-    default: "Nonakoding — Belajar, Bikin, dan Berkarya di Dunia Koding",
+    default: "Nonakoding — Komunitas Belajar Digital untuk Perempuan Indonesia",
     template: "%s | Nonakoding",
   },
   description:
-    "Platform belajar koding, desain grafis, dan UI/UX untuk perempuan Indonesia. Komunitas yang supportif untuk semua level.",
+    "Komunitas perempuan Indonesia untuk belajar Software Development, Graphic Design, UI/UX, dan FullStack AI. Women Power Course — mulai perjalanan digitalmu bersama kami.",
   keywords: ["belajar koding", "ui ux design", "graphic design", "komunitas perempuan", "Nonakoding"],
   authors: [{ name: "Nonakoding" }],
   creator: "Nonakoding",
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://nonakoding.com",
     siteName: "Nonakoding",
-    title: "Nonakoding — Belajar, Bikin, dan Berkarya di Dunia Koding",
-    description: "Platform belajar koding, desain grafis, dan UI/UX untuk perempuan Indonesia.",
+    title: "Nonakoding — Komunitas Belajar Digital untuk Perempuan Indonesia",
+    description: "Komunitas perempuan Indonesia untuk belajar Software Development, Graphic Design, UI/UX, dan FullStack AI.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Nonakoding" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nonakoding — Belajar, Bikin, dan Berkarya di Dunia Koding",
-    description: "Platform belajar koding, desain grafis, dan UI/UX untuk perempuan Indonesia.",
+    title: "Nonakoding — Komunitas Belajar Digital untuk Perempuan Indonesia",
+    description: "Komunitas perempuan Indonesia untuk belajar Software Development, Graphic Design, UI/UX, dan FullStack AI.",
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
