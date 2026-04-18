@@ -81,63 +81,78 @@ export function Navbar() {
         </Container>
       </header>
 
-      {/* Full-screen mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] bg-[var(--c-bg)] flex flex-col md:hidden"
-          >
-            {/* Top bar sama tinggi dengan navbar */}
-            <div className="flex h-16 items-center justify-between px-6 md:px-8 max-w-6xl mx-auto w-full">
-              <Logo />
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center w-9 h-9 text-[var(--c-text-2)]"
-                aria-label="Tutup menu"
-              >
-                <X size={22} />
-              </button>
-            </div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[55] bg-black/30 md:hidden"
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+            />
 
-            {/* Nav links — tengah */}
-            <div className="flex flex-1 flex-col items-center justify-center gap-2">
-              {NAV_LINKS.map((link, i) => (
+            {/* Half-screen menu */}
+            <motion.div
+              key="menu"
+              initial={{ y: "-100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-100%" }}
+              transition={{ duration: 0.3, ease: E }}
+              className="fixed top-0 left-0 right-0 h-1/2 z-[60] bg-[var(--c-bg)] flex flex-col md:hidden shadow-xl"
+            >
+              {/* Top bar */}
+              <div className="flex h-16 items-center justify-between px-6 max-w-6xl mx-auto w-full">
+                <Logo />
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center w-9 h-9 text-[var(--c-text-2)]"
+                  aria-label="Tutup menu"
+                >
+                  <X size={22} />
+                </button>
+              </div>
+
+              {/* Nav links */}
+              <div className="flex flex-1 flex-col items-center justify-center gap-1">
+                {NAV_LINKS.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, ease: E, delay: i * 0.05 + 0.1 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-8 py-2 text-xl font-semibold text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150 text-center"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+
                 <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, ease: E, delay: i * 0.06 }}
+                  transition={{ duration: 0.25, ease: E, delay: NAV_LINKS.length * 0.05 + 0.1 }}
+                  className="mt-3"
                 >
                   <Link
-                    href={link.href}
+                    href="/events"
                     onClick={() => setMobileOpen(false)}
-                    className="block px-8 py-3 text-2xl font-semibold text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150 text-center"
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-200"
                   >
-                    {link.label}
+                    Gabung Komunitas
                   </Link>
                 </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, ease: E, delay: NAV_LINKS.length * 0.06 }}
-                className="mt-4"
-              >
-                <Link
-                  href="/events"
-                  onClick={() => setMobileOpen(false)}
-                  className="inline-flex items-center justify-center px-10 py-3.5 rounded-full text-base font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-200"
-                >
-                  Gabung Komunitas
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
