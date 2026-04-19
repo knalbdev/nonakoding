@@ -55,14 +55,14 @@ export function Hero() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, ease: E, delay: 0.4 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-[var(--c-text-3)]">
+            className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--c-text-3)]">
             {[
               { value: "50+", label: "Member Aktif" },
               { value: "2+", label: "Tahun Berdiri" },
               { value: "3+", label: "Program Selesai" },
             ].map((s, i) => (
               <span key={i} className="flex items-center gap-1.5">
-                <span className="font-semibold" style={{ color: "#E5007E" }}>{s.value}</span>
+                <span className="text-base font-bold" style={{ color: "#E5007E" }}>{s.value}</span>
                 {s.label}
                 {i < 2 && <span className="ml-6 h-3 w-px bg-[var(--c-border)]" aria-hidden="true" />}
               </span>
@@ -73,9 +73,9 @@ export function Hero() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5" aria-hidden="true">
-        <span className="text-xs text-[var(--c-text-3)]">scroll</span>
+        <span className="text-sm text-[var(--c-text-3)]">scroll</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}>
-          <ChevronDown size={16} className="text-[var(--c-text-3)]" />
+          <ChevronDown size={18} className="text-[var(--c-text-3)]" />
         </motion.div>
       </motion.div>
     </section>

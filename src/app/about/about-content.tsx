@@ -11,10 +11,10 @@ import { useState } from "react";
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const TEAM = [
-  { name: "Setianing Budi", role: "Nona Founder", photo: "/team/setianing.jpg", linkedin: "https://www.linkedin.com/in/setianingbudi/" },
-  { name: "Mane Mint Dahi", role: "Nona Mentor", photo: "/team/mane.jpg", linkedin: "https://www.linkedin.com/in/mane-mint-dahi/" },
-  { name: "Anisah Nurul Azhar", role: "Nona Creative", photo: "/team/anisah.jpg", linkedin: "https://www.linkedin.com/in/anisahnurulazhar/" },
-  { name: "Rosalina Saputri", role: "Nona Mentor", photo: "/team/rosalina.jpg", linkedin: "https://www.linkedin.com/in/profile-rosalina-saputri-08569220a/" },
+  { name: "Setianing Budi", role: "Nona Founder", photo: "/images/mentors/setianing.png", linkedin: "https://www.linkedin.com/in/setianingbudi/" },
+  { name: "Mane Mint Dahi", role: "Nona Mentor", photo: "/images/mentors/mane.png", linkedin: "https://www.linkedin.com/in/mane-mint-dahi/" },
+  { name: "Anisa Azhar", role: "Nona Creative", photo: "/images/mentors/anisa.png", linkedin: "https://www.linkedin.com/in/anisahnurulazhar/" },
+  { name: "Rosalina Saputri", role: "Nona Mentor", photo: "/images/mentors/rosalina.png", linkedin: "https://www.linkedin.com/in/profile-rosalina-saputri-08569220a/" },
 ];
 
 function TeamCard({ member, delay }: { member: typeof TEAM[0]; delay: number }) {

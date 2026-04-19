@@ -23,7 +23,7 @@ const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function Pillars() {
   return (
-    <section className="relative py-24 md:py-32" aria-labelledby="paths-heading">
+    <section className="relative py-14 md:py-24" aria-labelledby="paths-heading">
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
 
       <Container>

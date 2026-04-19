@@ -77,7 +77,7 @@ function MentorCard({ mentor, delay }: { mentor: typeof MENTORS[0]; delay: numbe
 
 export function Mentors() {
   return (
-    <section className="relative py-24 md:py-32" aria-labelledby="mentors-heading">
+    <section className="relative py-14 md:py-24" aria-labelledby="mentors-heading">
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
 
       <Container>

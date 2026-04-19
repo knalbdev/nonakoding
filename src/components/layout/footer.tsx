@@ -93,7 +93,7 @@ export function Footer() {
       <div className="border-t border-[var(--c-border)]">
         <Container className="flex flex-col gap-2 py-5 text-xs text-[var(--c-text-3)] sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Nonakoding. All rights reserved.</p>
-          <p>Empowering Women in <span style={{ color: "#E5007E" }}>Tech</span></p>
+          <p>Empowering Women in Tech</p>
         </Container>
       </div>
     </footer>

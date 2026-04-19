@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Container } from "@/components/common/container";
 
@@ -66,9 +67,10 @@ function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
 
 export function Testimonials() {
   const doubled = [...TESTIMONIALS, ...TESTIMONIALS];
+  const [paused, setPaused] = useState(false);
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden" aria-labelledby="testimonials-heading">
+    <section className="relative py-14 md:py-24 overflow-hidden" aria-labelledby="testimonials-heading">
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
 
       <Container>
@@ -92,15 +94,23 @@ export function Testimonials() {
       </Container>
 
       {/* Marquee */}
-      <div className="relative group">
+      <div
+        className="relative"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
+      >
         {/* Fade edges */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 z-10"
           style={{ background: "linear-gradient(to right, var(--c-bg), transparent)" }} />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 z-10"
           style={{ background: "linear-gradient(to left, var(--c-bg), transparent)" }} />
 
-        <div className="flex gap-5 w-max group-hover:[animation-play-state:paused]"
-          style={{ animation: "marquee 30s linear infinite" }}>
+        <div
+          className="flex gap-5 w-max"
+          style={{ animation: "marquee 30s linear infinite", animationPlayState: paused ? "paused" : "running" }}
+        >
           {doubled.map((t, i) => (
             <TestimonialCard key={i} t={t} />
           ))}

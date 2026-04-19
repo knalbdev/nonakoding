@@ -10,7 +10,7 @@ const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function About() {
   return (
-    <section className="relative py-24 md:py-32" aria-labelledby="about-heading">
+    <section className="relative py-14 md:py-24" aria-labelledby="about-heading">
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
 
       <Container>
@@ -66,14 +66,17 @@ export function About() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="flex items-center rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-4">
               {STATS.map((stat, i) => (
-                <motion.div key={stat.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.4, ease: E, delay: i * 0.08 }}
-                  className="flex flex-col p-4 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
-                  <span className="font-display text-2xl font-bold" style={{ color: "#E5007E" }}>{stat.value}</span>
-                  <span className="mt-0.5 text-xs text-[var(--c-text-2)]">{stat.label}</span>
-                </motion.div>
+                <>
+                  <motion.div key={stat.label} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }} transition={{ duration: 0.4, ease: E, delay: i * 0.08 }}
+                    className="flex flex-col items-center text-center flex-1">
+                    <span className="font-display text-xl font-bold" style={{ color: "#E5007E" }}>{stat.value}</span>
+                    <span className="mt-0.5 text-[10px] text-[var(--c-text-2)] leading-tight">{stat.label}</span>
+                  </motion.div>
+                  {i < STATS.length - 1 && <div className="h-8 w-px bg-[var(--c-border)]" />}
+                </>
               ))}
             </div>
           </motion.div>
