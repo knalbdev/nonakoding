@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -100,12 +101,15 @@ export function AboutContent() {
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, ease: E, delay: 0.1 }}
-              className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              className="flex items-center rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-5">
               {STATS.map((stat, i) => (
-                <div key={i} className="flex flex-col p-5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
-                  <span className="font-display text-3xl font-bold" style={{ color: "#E5007E" }}>{stat.value}</span>
-                  <span className="mt-1 text-sm text-[var(--c-text-2)]">{stat.label}</span>
-                </div>
+                <React.Fragment key={stat.label}>
+                  <div className="flex flex-col items-center text-center flex-1">
+                    <span className="font-display text-2xl font-bold sm:text-3xl" style={{ color: "#E5007E" }}>{stat.value}</span>
+                    <span className="mt-0.5 text-xs text-[var(--c-text-2)] leading-tight">{stat.label}</span>
+                  </div>
+                  {i < STATS.length - 1 && <div className="h-8 w-px bg-[var(--c-border)]" />}
+                </React.Fragment>
               ))}
             </motion.div>
           </div>
