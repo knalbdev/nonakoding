@@ -26,8 +26,9 @@ function TeamCard({ member, delay }: { member: typeof TEAM[0]; delay: number }) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: E, delay }}
-      className="flex flex-col items-center text-center p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]"
+      className="relative overflow-hidden flex flex-col items-center text-center p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(229,0,126,0.12)] hover:border-[rgba(229,0,126,0.25)]"
     >
+      <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(to right, #E5007E, #F572BE)" }} />
       <div className="mb-4 h-20 w-20 rounded-full overflow-hidden border-2 border-[var(--c-border)] flex items-center justify-center bg-[var(--c-surface-2)]">
         {!imgError ? (
           <Image
@@ -156,8 +157,8 @@ export function AboutContent() {
             {LEARNING_PATHS.map((path, i) => (
               <motion.div key={path.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, ease: E, delay: i * 0.1 }}
-                className="p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
-                <div className="mb-3 h-1 w-8 rounded-full" style={{ backgroundColor: path.color }} />
+                className="relative overflow-hidden p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(229,0,126,0.12)] hover:border-[rgba(229,0,126,0.25)]">
+                <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(to right, ${path.color}, transparent)` }} />
                 <h3 className="font-display text-base font-semibold text-[var(--c-text)]">{path.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--c-text-2)]">{path.description}</p>
               </motion.div>

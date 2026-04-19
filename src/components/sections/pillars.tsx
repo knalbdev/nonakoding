@@ -47,13 +47,14 @@ export function Pillars() {
               <motion.div key={path.id} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5, ease: E, delay: i * 0.1 }}
                 className={cn(
-                  "group relative flex flex-col p-7 rounded-xl",
+                  "group relative overflow-hidden flex flex-col p-7 rounded-xl",
                   "border border-[var(--c-border)] bg-[var(--c-surface)]",
                   "transition-all duration-300 hover:-translate-y-1",
-                  "hover:shadow-[0_8px_32px_rgba(229,0,126,0.1)]"
+                  "hover:shadow-[0_12px_32px_rgba(229,0,126,0.12)] hover:border-[rgba(229,0,126,0.25)]"
                 )}
                 style={{ ["--hover-border" as string]: path.color }}
               >
+                <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-xl" style={{ background: `linear-gradient(to right, ${path.color}, transparent)` }} />
                 {"badge" in path && path.badge ? (
                   <span className="absolute top-5 right-5 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-[#A855F7] text-white">
                     {path.badge}

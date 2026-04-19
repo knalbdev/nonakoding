@@ -40,8 +40,9 @@ function MentorCard({ mentor, delay }: { mentor: typeof MENTORS[0]; delay: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, ease: E, delay }}
-      className="flex flex-col items-center text-center p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] hover:shadow-[0_8px_24px_rgba(229,0,126,0.08)] transition-shadow duration-300"
+      className="relative overflow-hidden flex flex-col items-center text-center p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(229,0,126,0.12)] hover:border-[rgba(229,0,126,0.25)]"
     >
+      <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(to right, #E5007E, #F572BE)" }} />
       {/* Photo */}
       <div className="mb-4 h-24 w-24 rounded-full overflow-hidden border-2 flex items-center justify-center bg-[var(--c-surface-2)]"
         style={{ borderColor: "#E5007E" }}>

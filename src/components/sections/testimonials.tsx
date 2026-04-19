@@ -46,7 +46,8 @@ const TESTIMONIALS = [
 
 function TestimonialCard({ t }: { t: typeof TESTIMONIALS[0] }) {
   return (
-    <div className="flex flex-col w-[320px] shrink-0 p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
+    <div className="relative overflow-hidden flex flex-col w-[320px] shrink-0 p-6 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(229,0,126,0.12)] hover:border-[rgba(229,0,126,0.25)]">
+      <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(to right, #E5007E, #F572BE)" }} />
       <span className="mb-3 text-4xl leading-none font-display" style={{ color: "#E5007E" }}>"</span>
       <p className="flex-1 text-sm leading-relaxed text-[var(--c-text-2)]">{t.quote}</p>
       <div className="mt-5 flex items-center gap-3 border-t border-[var(--c-border)] pt-4">
