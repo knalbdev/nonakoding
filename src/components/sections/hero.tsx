@@ -57,9 +57,9 @@ export function Hero() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, ease: E, delay: 0.4 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-[var(--c-text-3)]">
             {[
-              { value: "500+", label: "Member Aktif" },
-              { value: "50+", label: "Program Selesai" },
-              { value: "3+", label: "Tahun Berdiri" },
+              { value: "50+", label: "Member Aktif" },
+              { value: "2+", label: "Tahun Berdiri" },
+              { value: "3+", label: "Program Selesai" },
             ].map((s, i) => (
               <span key={i} className="flex items-center gap-1.5">
                 <span className="font-semibold" style={{ color: "#E5007E" }}>{s.value}</span>

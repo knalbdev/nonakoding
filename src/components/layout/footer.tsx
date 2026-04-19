@@ -32,7 +32,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Logo size="md" />
             <p className="mt-4 text-sm leading-relaxed text-[var(--c-text-2)]">
-              Komunitas belajar untuk perempuan Indonesia di bidang Software Development, Graphic Design, dan UI/UX Design.
+              Komunitas belajar untuk perempuan Indonesia di bidang teknologi digital.
             </p>
             <div className="mt-5 flex items-center gap-2">
               {SOCIAL_LINKS.map(({ label, href, Icon }) => (

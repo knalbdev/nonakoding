@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { Container } from "@/components/common/container";
-import { IconInstagram } from "@/components/common/social-icons";
+import { IconWhatsapp } from "@/components/common/social-icons";
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -38,12 +38,12 @@ export function CTA() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Link href="https://instagram.com/nonakoding" target="_blank" rel="noopener noreferrer"
+              <a href="https://chat.whatsapp.com/H3L6uQcea6dE2Dia2fo5wr" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#E5007E] text-white text-sm font-semibold hover:bg-[#C4006A] transition-all duration-200 shadow-[0_0_24px_rgba(229,0,126,0.35)]">
-                <IconInstagram size={15} />
-                Follow di Instagram
+                <IconWhatsapp size={15} />
+                Gabung Komunitas WhatsApp
                 <ArrowRight size={15} />
-              </Link>
+              </a>
               <Link href="mailto:nonakoding@gmail.com"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[var(--c-border)] bg-[var(--c-bg)] text-[var(--c-text)] text-sm font-semibold hover:border-[var(--c-text-3)] transition-all duration-200">
                 <Mail size={15} />

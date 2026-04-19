@@ -62,9 +62,9 @@ export function Navbar() {
             </ul>
 
             <div className="flex items-center gap-2">
-              <Link href="/events" className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-150 shadow-[0_0_16px_rgba(229,0,126,0.25)]">
+              <a href="https://chat.whatsapp.com/H3L6uQcea6dE2Dia2fo5wr" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-150 shadow-[0_0_16px_rgba(229,0,126,0.25)]">
                 Gabung Komunitas
-              </Link>
+              </a>
               <button
                 onClick={() => setMobileOpen((p) => !p)}
                 className="md:hidden flex items-center justify-center w-9 h-9 rounded-md text-[var(--c-text-2)] hover:text-[var(--c-text)] transition-colors duration-150"
@@ -152,13 +152,15 @@ export function Navbar() {
                   transition={{ duration: 0.25, ease: E, delay: NAV_LINKS.length * 0.05 + 0.1 }}
                   className="mt-3"
                 >
-                  <Link
-                    href="/events"
+                  <a
+                    href="https://chat.whatsapp.com/H3L6uQcea6dE2Dia2fo5wr"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMobileOpen(false)}
                     className="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm font-medium bg-[#E5007E] text-white hover:bg-[#C4006A] transition-colors duration-200"
                   >
                     Gabung Komunitas
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>

@@ -16,13 +16,18 @@ export function NewsletterForm() {
     }
     setError("");
     setSubmitted(true);
+    fetch("https://script.google.com/macros/s/AKfycbw0RVv9ZvdpFwFvyzb0OaU6pe-waEoVEEHZn668pgiwHEP5C0nyG-J9qAVtQSfBjUSd6A/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({ email }),
+    }).catch(() => {});
   };
 
   if (submitted) {
     return (
       <div className="flex items-center gap-2 text-sm text-[var(--c-text-2)]">
         <CheckCircle2 size={16} style={{ color: "#E5007E" }} />
-        Terima kasih! Kami akan kabari kamu.
+        Email kamu sudah kami catat. Nantikan info terbaru dari Nonakoding!
       </div>
     );
   }

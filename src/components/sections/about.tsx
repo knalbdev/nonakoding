@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/common/container";
 import { STATS } from "@/lib/constants";
+import { IconWhatsapp } from "@/components/common/social-icons";
 
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -47,14 +49,21 @@ export function About() {
           <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: E, delay: 0.1 }}
             className="flex flex-col gap-5">
-            <div className="relative overflow-hidden rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] flex items-center justify-center h-48" aria-hidden="true">
+            <div className="relative overflow-hidden rounded-2xl border border-[var(--c-border)] bg-[var(--c-surface)] p-8 flex flex-col items-center justify-center gap-5">
               <div className="absolute inset-0 opacity-10" style={{
                 background: "radial-gradient(circle at 30% 50%, #E5007E, transparent 60%), radial-gradient(circle at 70% 50%, #F572BE, transparent 60%)",
-              }} />
-              <div className="relative text-center">
-                <p className="font-display text-lg font-bold" style={{ color: "#E5007E" }}>nonakoding</p>
-                <p className="mt-1 text-xs text-[var(--c-text-3)]">Empowering Women in Tech</p>
+              }} aria-hidden="true" />
+              <div className="relative">
+                <Image src="/images/logo/nonakoding-logo.png" alt="Nonakoding" width={160} height={40} className="object-contain" />
               </div>
+              <p className="relative text-sm text-center text-[var(--c-text-2)]">
+                Komunitas perempuan Indonesia di dunia teknologi digital. Bergabung sekarang, gratis!
+              </p>
+              <a href="https://chat.whatsapp.com/H3L6uQcea6dE2Dia2fo5wr" target="_blank" rel="noopener noreferrer"
+                className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E5007E] text-white text-sm font-semibold hover:bg-[#C4006A] transition-colors duration-200">
+                <IconWhatsapp size={15} />
+                Gabung Komunitas WhatsApp
+              </a>
             </div>
 
             <div className="grid grid-cols-2 gap-3">

@@ -127,10 +127,9 @@ export const PROGRAMS = [
 // Stats komunitas
 // ============================================================
 export const STATS = [
-  { value: "500+", label: "Member Aktif" },
-  { value: "50+", label: "Program Selesai" },
-  { value: "3+", label: "Tahun Berdiri" },
-  { value: "10+", label: "Expert Pembicara" },
+  { value: "50+", label: "Member Aktif" },
+  { value: "2+", label: "Tahun Berdiri" },
+  { value: "3+", label: "Program Selesai" },
 ];
 
 // ============================================================

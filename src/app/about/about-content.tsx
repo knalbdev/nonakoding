@@ -11,10 +11,10 @@ import { useState } from "react";
 const E: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const TEAM = [
-  { name: "Setianing Budi", role: "Nona Founder", photo: "/team/setianing.jpg" },
-  { name: "Mane Mint Dahi", role: "Nona Mentor", photo: "/team/mane.jpg" },
-  { name: "Anisah Nurul Azhar", role: "Nona Creative", photo: "/team/anisah.jpg" },
-  { name: "Rosalina Saputri", role: "Nona Mentor", photo: "/team/rosalina.jpg" },
+  { name: "Setianing Budi", role: "Nona Founder", photo: "/team/setianing.jpg", linkedin: "https://www.linkedin.com/in/setianingbudi/" },
+  { name: "Mane Mint Dahi", role: "Nona Mentor", photo: "/team/mane.jpg", linkedin: "https://www.linkedin.com/in/mane-mint-dahi/" },
+  { name: "Anisah Nurul Azhar", role: "Nona Creative", photo: "/team/anisah.jpg", linkedin: "https://www.linkedin.com/in/anisahnurulazhar/" },
+  { name: "Rosalina Saputri", role: "Nona Mentor", photo: "/team/rosalina.jpg", linkedin: "https://www.linkedin.com/in/profile-rosalina-saputri-08569220a/" },
 ];
 
 function TeamCard({ member, delay }: { member: typeof TEAM[0]; delay: number }) {
@@ -42,7 +42,10 @@ function TeamCard({ member, delay }: { member: typeof TEAM[0]; delay: number }) 
           <span className="font-display text-xl font-bold" style={{ color: "#E5007E" }}>{initials}</span>
         )}
       </div>
-      <h3 className="font-display text-sm font-semibold text-[var(--c-text)]">{member.name}</h3>
+      <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
+        className="font-display text-sm font-semibold text-[var(--c-text)] hover:text-[#E5007E] transition-colors duration-150">
+        {member.name}
+      </a>
       <span className="mt-1 text-xs font-medium" style={{ color: "#E5007E" }}>{member.role}</span>
     </motion.div>
   );
@@ -51,8 +54,8 @@ function TeamCard({ member, delay }: { member: typeof TEAM[0]; delay: number }) 
 export function AboutContent() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-32 pb-16 text-center" aria-label="About hero">
+      {/* Hero + Kisah */}
+      <section className="pt-32 pb-20 text-center" aria-label="About hero">
         <div className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 h-[400px] w-[400px] rounded-full opacity-[0.07] blur-3xl -z-10"
           style={{ background: "radial-gradient(circle, #E5007E, transparent 70%)" }} aria-hidden="true" />
         <Container size="narrow">
@@ -63,33 +66,11 @@ export function AboutContent() {
             <h1 className="font-display text-4xl font-bold tracking-tight text-[var(--c-text)] sm:text-5xl">
               Kami adalah <span style={{ color: "#E5007E" }}>Nonakoding</span>
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-[var(--c-text-2)]">
-              Komunitas yang percaya setiap perempuan berhak untuk unjuk kemampuan di dunia digital.
+            <p className="mt-5 text-base leading-relaxed text-[var(--c-text-2)]">
+              Nonakoding dibentuk oleh sekelompok perempuan yang percaya bahwa teknologi bukan hanya milik satu ras atau gender — teknologi adalah hak semua manusia, termasuk perempuan.
             </p>
           </motion.div>
         </Container>
-      </section>
-
-      {/* Kisah Terbentuknya Nonakoding */}
-      <section className="py-16" aria-label="Kisah Nonakoding">
-        <div className="h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
-        <Container className="py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: E }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="font-display text-2xl font-bold text-[var(--c-text)] sm:text-3xl mb-6">
-              Kisah Terbentuknya <span style={{ color: "#E5007E" }}>Nonakoding</span>
-            </h2>
-            <p className="text-base leading-relaxed text-[var(--c-text-2)]">
-              Nonakoding dibentuk oleh sekelompok perempuan yang sangat menyadari bahwasannya teknologi itu tidak hanya terbatas hanya untuk satu ras atau gender tertentu saja, melainkan teknologi adalah hak untuk semua manusia termasuk perempuan.
-            </p>
-          </motion.div>
-        </Container>
-        <div className="h-px" style={{ background: "linear-gradient(to right, transparent, var(--c-border), transparent)" }} />
       </section>
 
       {/* Misi */}
@@ -118,7 +99,7 @@ export function AboutContent() {
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, ease: E, delay: 0.1 }}
-              className="grid grid-cols-2 gap-3">
+              className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {STATS.map((stat, i) => (
                 <div key={i} className="flex flex-col p-5 rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]">
                   <span className="font-display text-3xl font-bold" style={{ color: "#E5007E" }}>{stat.value}</span>
@@ -195,15 +176,15 @@ export function AboutContent() {
               Mau ikut bergabung?
             </h2>
             <p className="mt-3 text-base text-[var(--c-text-2)]">
-              Cek program kami atau langsung hubungi via email.
+              Cek program kami atau langsung gabung ke komunitas WhatsApp kami.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link href="/events" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E5007E] text-white text-sm font-semibold hover:bg-[#C4006A] transition-colors duration-200">
                 Lihat Event <ArrowRight size={14} />
               </Link>
-              <Link href="mailto:nonakoding@gmail.com" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] text-sm font-semibold hover:border-[var(--c-text-3)] transition-colors duration-200">
-                nonakoding@gmail.com
-              </Link>
+              <a href="https://chat.whatsapp.com/H3L6uQcea6dE2Dia2fo5wr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-text)] text-sm font-semibold hover:border-[var(--c-text-3)] transition-colors duration-200">
+                Gabung WhatsApp Community
+              </a>
             </div>
           </motion.div>
         </Container>
