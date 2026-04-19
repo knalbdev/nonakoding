@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/common/container";
@@ -68,15 +69,15 @@ export function About() {
 
             <div className="flex items-center rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-4">
               {STATS.map((stat, i) => (
-                <>
-                  <motion.div key={stat.label} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                <React.Fragment key={stat.label}>
+                  <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.4, ease: E, delay: i * 0.08 }}
                     className="flex flex-col items-center text-center flex-1">
                     <span className="font-display text-xl font-bold" style={{ color: "#E5007E" }}>{stat.value}</span>
                     <span className="mt-0.5 text-[10px] text-[var(--c-text-2)] leading-tight">{stat.label}</span>
                   </motion.div>
                   {i < STATS.length - 1 && <div className="h-8 w-px bg-[var(--c-border)]" />}
-                </>
+                </React.Fragment>
               ))}
             </div>
           </motion.div>
